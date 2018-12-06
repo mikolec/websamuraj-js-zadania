@@ -1,0 +1,60 @@
+Obiekty - nieuporządkowana lista właściwości: złożonych z klucza i wartości
+nazwa wlaścwiości jest łańczuchem, a wartość może być dowolnym typem. jeśli właściwość jest funkcją, to jest metodą obiektu
+
+console.log(`Obecnie zegarek wskazuje ${new Date().toLocaleString()}`);
+
+Pobieranie elementów ze strony
+document - reprezentacja całej strony
+document.documentElement - wskazuje na węzeł <html>
+document.body
+document.images - wszystkie obrazki na stronie - obiekt tablicopodobny HTMLCollection
+Aby zrobić z takiego elementu prawdziwą tabliće możemy wykorzystać metodę Array:
+const imgs = Array.from(document.images);
+albo wykorzystać operator REST:
+const imgs = [...document.images];
+
+Pobieranie pojedynczego elementu:
+document.querySelector("li:nth-child(2)");
+document.getElementById('first');
+- jeśli nie ma żadnego elementu, to obydwie metody zwracają null
+
+Pobieranie wszystkich pasujących elementów:
+document.querySelectorAll('ul>li') -> zwraca NodeList
+document.getElementsByTagName('li') -> HTMLCollection
+document.getElementsByClassName('even')
+- w przypadku nie znalezienia elemntów pasujących , zwracany jest pusty obiekt
+
+
+Pobieranie atrybutów z elementów
+jak już mamy pobrany element, to możemy pobrać jego atrybut za pomocą metody getAttribute
+const h2 = document.querySelector('h2');
+h2.getAttribute('data-color');
+.textContent - zwraca zawartość tekstową danego elementu DOM np: 
+h2.textContent
+.innerHTML - zwraca wewnętrzny kod HTML obiektu (wraz z innymi tagami)
+h2.innerHTML
+MOżemy sprawdzić, czy dany element zawiera konkretną klasę:
+h2.classList.contains("klasa") -> true albo false
+.classList - jest obiektem przechowującym klasy,  można na tym obiekcie wywołać rożne metody
+
+MODYFIKACJA ELEMENTÓW
+.textCOntent - możemy przypisać zawartość tekstową elementu
+.innerHTML - możemy przypisać nowy kod html
+Aby przypisać style (inline) - obiekt .style np.: 
+firstLi.style.fontSize = "20px";
+firstLi.style.backgroundColor = "#ccc";
+.classList.add("klasa") - dodaje klasę do elementu
+.classList.remove("klasa") - usuwa klasę z elementu
+.classList.toggle("klasa") - dodaje lub usuwa klasę do elementu
+
+.className = "klasa" - nadpisuje klasy elementu
+.id = "id" = można przyisać id, jeśli pusty string, to id można usunąć
+image.src - można przypisać src obrazka
+el.getAttribute("atrybut") - pobiera atrybut elementu
+el.setAttribute("atrybut", "wartość") - przypisuje wartość atrybutu elementu
+
+liItems.forEach(function(liItem){
+    liItem.style.textDecoration = "underline";
+});
+
+
