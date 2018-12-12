@@ -25,6 +25,8 @@ JAVASCRIPT
             padding: 0;
         }
         button {
+            display: block;     
+            margin: .5em auto;
             border: 4px dashed black;
             background-color: #fff;
             font-family: arial;
@@ -32,8 +34,7 @@ JAVASCRIPT
             font-size: 3em;
             padding: .2em .6em;
             cursor: pointer;
-            margin: .5em auto;
-            display: block;
+
         }
         button:hover {
             background-color: #000;
@@ -65,33 +66,22 @@ JAVASCRIPT
 <body>
     <button>kliknij</button>
     <!-- div{$}*12 -->
-    <!-- <div class="square">1</div>
-    <div class="square">2</div>
-    <div class="square">3</div>
-    <div class="square">4</div>
-    <div class="circle">5</div>
-    <div class="square">6</div>
-    <div class="square">7</div>
-    <div class="square">8</div>
-    <div class="square">9</div>
-    <div class="circle">10</div>
-    <div class="square">11</div>
-    <div class="square">12</div> -->
-
 
 
     <script>
+        const btn = document.querySelector('button');
+
         let counter = 1;
-        function createSquare() {
-            let div = document.createElement('div');
+        const addElement = function () {
+            const div = document.createElement('div');
             div.textContent = counter;
             if (counter%5 === 0) {div.classList.add('circle')} 
             document.body.appendChild(div);
             counter++;
         }
 
-        const btn = document.querySelector('button');
-        btn.addEventListener('click', createSquare);
+
+        btn.addEventListener('click', addElement);
     
     </script>
 </body>
