@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kwadrat do skrolowania</title>
+    <style>
+        body {
+            height: 10000vh;
+        }
+        .square {
+            width: 50vh;
+            height: 50vh;
+            background-color: #000;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="square"></div>
+
+    <script>
+        let grow = -1; //wskazuje kierunek malenie-rośnięcie
+        const growFactor = 10;
+        const sqr = document.querySelector(".square");
+        const initWidth = parseInt(window.getComputedStyle(sqr).getPropertyValue("width"));
+        let currentWidth = initWidth;
+        window.addEventListener("scroll", function(){
+            currentWidth += grow * growFactor;
+            sqr.style.width = currentWidth + "px";
+            sqr.style.height = currentWidth + "px";
+            if(currentWidth < 0) {
+                grow = 1;
+            } else 
+            if(currentWidth > initWidth) {
+                grow = -1;
+            }
+        });
+        
+        
+    </script>
+</body>
+</html>
