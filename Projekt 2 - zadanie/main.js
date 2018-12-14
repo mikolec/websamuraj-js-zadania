@@ -10,7 +10,7 @@ let grow = true;
 // div.style.height = size +"px"; 
 // div.style.backgroundColor = color;
 
-function changeHeight() {
+const changeHeight = function() {
 
     div.style.height = size + "px"; 
     div.style.backgroundColor = color;
