@@ -31,27 +31,27 @@ const init = () => {
     document.body.appendChild(btnReset);
     document.body.appendChild(ul);
     btnAdd.addEventListener("click", createLiElements);
-    btnReset.addEventListener("click", () => {
-        // ul.parentNode.removeChild(ul);
-        document.querySelectorAll("li").forEach((li) => {
-            li.remove();
-        });
-        size = 10;
-        orderElement = 1; 
-    });
+    btnReset.addEventListener("click", cleanList);
 }
 
 const createLiElements = () => {
-
+    const ul = document.querySelector("ul");
     for(let i = 0; i < 10; i++) {
         const li = document.createElement("li");
-        li.textContent = `Element nr ${orderElement}`;
-        li.style.fontSize = `${size}px`
-        document.querySelector("ul").appendChild(li);
-        orderElement++;
-        size++;
+        li.textContent = `Element nr ${orderElement++}`;
+        li.style.fontSize = `${size++}px`
+        ul.appendChild(li);
     }
 
+}
+
+const cleanList = () => {
+    document.querySelector("ul").innerHTML = "";
+    // document.querySelectorAll("li").forEach((li) => {
+    //     li.remove();
+    // });
+    size = 10;
+    orderElement = 1; 
 }
 
 init()
