@@ -1,0 +1,88 @@
+<!-- 
+1. stworzyć plik index.html i strukturę dokumentu
+2. stworzyć przycisk w html
+3. ostylować przycisk i kwadraty, które będę tworzone
+JAVASCRIPT
+1. pobrać przycisk i podpiąć do niego nasłuchiwanie na click
+2. zadeklarować funkcję
+3. w funkcji stworzyć element html (div)
+4. dodać div do strony
+5. stworzyć licznik i uzupełnić zawartość elementu div o wartość licznika
+6. za pomocą instrukcji warunkowej stwierdzić czy dany element jest 5, jeśli tak nadać mu inną klasę 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Rectangle</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            /* margin: 0; */
+            padding: 0;
+        }
+        button {
+            display: block;     
+            margin: .5em auto;
+            border: 4px dashed black;
+            background-color: #fff;
+            font-family: arial;
+            text-transform: uppercase;
+            font-size: 3em;
+            padding: .2em .6em;
+            cursor: pointer;
+
+        }
+        button:hover {
+            background-color: #000;
+            color: #fff;
+        }
+        div {
+            background-color: #000;
+            color: #fff;
+            display: inline-block;
+            width: 3em;
+            height: 3em;
+            text-align: center;
+            line-height: 3em;
+            font-size: 1em;
+            font-family: arial;
+            margin: .2em;
+            vertical-align: top;
+        }
+        .circle {
+            background-color: #fff;
+            color: #000;
+            border: 5px solid #000;
+            border-radius: 50%;
+            line-height: calc(3em - 10px);
+        }
+    
+    </style>
+</head>
+<body>
+    <button>kliknij</button>
+    <!-- div{$}*12 -->
+
+
+    <script>
+        const btn = document.querySelector('button');
+
+        let counter = 1;
+        const addElement = function () {
+            const div = document.createElement('div');
+            div.textContent = counter;
+            if (counter%5 === 0) {div.classList.add('circle')} 
+            document.body.appendChild(div);
+            counter++;
+        }
+
+
+        btn.addEventListener('click', addElement);
+    
+    </script>
+</body>
+</html>

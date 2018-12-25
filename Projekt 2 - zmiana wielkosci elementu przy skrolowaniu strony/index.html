@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kwadrat do skrolowania</title>
+    <style>
+        body {
+            height: 10000vh;
+        }
+        div {
+            background-color: #000;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="square"></div>
+
+    <script>
+
+        const sqr = document.createElement("div");
+        document.body.appendChild(sqr);
+
+        let size = window.innerHeight / 2; //maksymalna wielkość kwadratu
+        sqr.style.width = size + "px";
+        sqr.style.height = size + "px";
+
+        let grow = true; //wskazuje kierunek malenie-rośnięcie
+        const growFactor = 10;
+
+        window.addEventListener("scroll", function(){
+ 
+            if(size <= 0 || size >= window.innerHeight / 2) {
+                grow = !grow;
+            } 
+
+            if (grow) {
+                size += growFactor;
+            } else {
+                size -= growFactor;
+            }
+            
+            sqr.style.width = size + "px";
+            sqr.style.height = size + "px";
+
+        });
+        
+        
+    </script>
+</body>
+</html>
