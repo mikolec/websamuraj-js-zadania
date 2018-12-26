@@ -1,48 +1,50 @@
 const input = document.querySelector("input"),
   btnAdd = document.querySelector("button.add"),
   btnClean = document.querySelector("button.clean"),
-  btnShowAdvice = document.querySelector("button.showAdvice"),
+  btnShowOption = document.querySelector("button.showAdvice"),
   btnShowOptions = document.querySelector("button.showOptions"),
   h1 = document.querySelector("h1");
 
-const advices = ["walcz", "przemyśl to jeszcze raz"];
+const options = ["walcz", "przemyśl to jeszcze raz"];
 
-const addNewAdvice = (e) => {
+const addNewOption = (e) => {
   e.preventDefault(); //nie wysyłaj formularza
   const value = input.value;
   if (value.length) {
-    advices.push(value);
+    options.push(value);
     alert(`Dodano wartość: ${value}`)
     input.value = "";
-    console.log(advices);
+    console.log(options);
 
   }
 };
 
-const cleanAdvices = (e) => {
+const cleanOptions = (e) => {
   e.preventDefault(); //nie wysyłaj formularza
 
-  if (advices.length) {
-    advices.length = 0;
+  if (options.length) {
+    options.length = 0;
     alert(`Wyczyszczono wszystkie porady`);
+    h1.textContent = "";
   }
+  console.log(options);
 };
 
-const showAdvice = (e) => {
+const showOption = (e) => {
   e.preventDefault(); //nie wysyłaj formularza
 
-  const randomIndex = Math.floor(Math.random() * advices.length);
-  h1.textContent = advices[randomIndex];
+  const randomIndex = Math.floor(Math.random() * options.length);
+  h1.textContent = options[randomIndex];
 }
 
 
 const showOptions = (e) => {
   e.preventDefault(); //nie wysyłaj formularza
 
-  alert(advices);
+  alert(options.join(", "));
 }
 
-btnAdd.addEventListener("click", addNewAdvice);
-btnClean.addEventListener("click", cleanAdvices);
-btnShowAdvice.addEventListener("click", showAdvice);
+btnAdd.addEventListener("click", addNewOption);
+btnClean.addEventListener("click", cleanOptions);
+btnShowOption.addEventListener("click", showOption);
 btnShowOptions.addEventListener("click", showOptions);
