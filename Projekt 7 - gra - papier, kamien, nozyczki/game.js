@@ -12,8 +12,6 @@ const game = {
   playerHand: "",
   aiHand: "",
 }
-
-
 const hands = [...document.querySelectorAll(".select img")];
 
 
