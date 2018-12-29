@@ -11,7 +11,6 @@ const timer = () => {
   let s = Math.floor(counter / 100);
   let ss = Math.floor(counter % 100);
   ss = ss < 10 ? "0" + ss : ss;
-  // console.log(s);
   let timeStr = `${s}.${ss}`;
   display.textContent = timeStr;
 };
