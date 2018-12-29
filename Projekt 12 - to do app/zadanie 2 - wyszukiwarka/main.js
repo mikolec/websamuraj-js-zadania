@@ -14,7 +14,7 @@ const people = arr.map(number => number + " osób");
 //forEach
 
 arr.forEach((number, index) => arr[index] = number * 2) */
-
+/* 
 const ul = document.querySelector("ul");
 const listHTML = [...document.querySelectorAll("ul li")];
 const list = listHTML.map(li => li.textContent);
@@ -34,3 +34,18 @@ inputHTML.addEventListener("input", e => {
     ul.appendChild(li);
   });
 });
+
+ */
+
+const input = document.querySelector("input");
+const ul = document.querySelector("ul");
+const liElements = document.querySelectorAll("li");
+
+const searchTask = e => {
+  const searchText = e.target.value.toLowerCase();
+  let tasks = [...liElements];
+  tasks = tasks.filter(li => li.textContent.toLowerCase().contains(searchText));
+  ul.textContent = ""; //czyszczenie elementu ul
+  tasks.forEach(li => ul.appendChild(li));
+};
+input.addEventListener("input", searchTask);
