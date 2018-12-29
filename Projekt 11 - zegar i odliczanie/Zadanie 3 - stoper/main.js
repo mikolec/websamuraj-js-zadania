@@ -10,11 +10,12 @@ let active = false;
 const timer = () => {
   if (active) {
     counter++;
-    let s = Math.floor(counter / 100);
-    let ss = Math.floor(counter % 100);
-    ss = ss < 10 ? "0" + ss : ss;
-    let timeStr = `${s}.${ss}`;
-    display.textContent = timeStr;
+    // let s = Math.floor(counter / 100);
+    // let ss = Math.floor(counter % 100);
+    // ss = ss < 10 ? "0" + ss : ss;
+    // let timeStr = `${s}.${ss}`;
+    // display.textContent = timeStr;
+    display.textContent = (counter / 100).toFixed(2);
     setTimeout(timer, 10);
   }
 };
